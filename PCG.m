@@ -1,12 +1,12 @@
 function [ soln, niters ]  = PCG( A, b, x0 )
    
     L_M = sparse(ichol(sparse(A), struct('type', 'ict','droptol',1e-3,'michol','off'))); 
-    %L_M = sparse(ichol(sparse(A))); 
     L_M_transp = transpose(L_M);
     curr_r = b-A*x0; %initialize residual
     niters=0;
     x = x0;
-    
+  
+    %Use loop to perform iterations still mature  
     while(norm(curr_r) >= eps(1)*(norm(b)))
        
         t = L_M \ curr_r;
