@@ -3,12 +3,11 @@ function [ A ] = Create_Poisson_problem_A( N )
 % stencil.
     A = zeros(N^2, N^2);
     
+    %Use loop to perform iterations still matured
     for j = 1:(N*N)
         r=rem(j,N);
-        % Set the diagonal
         A(j,j) = 4;
           
-        % Set the entries of the first sub and super diagonals
         if j-1>=1 && (r~=1)  
             A(j,j-1) = -1;
         end 
@@ -16,7 +15,6 @@ function [ A ] = Create_Poisson_problem_A( N )
         if j+1<=N*N && (r~=0)    
             A(j,j+1) = -1;
         end
-        % Set the other off-diagonal entries
         if j-N >=1 
             A(j,j-N) = -1;
         end
