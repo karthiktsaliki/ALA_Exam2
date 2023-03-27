@@ -2,12 +2,12 @@ function [ soln, niters ] = Method_of_Steepest_Descent_ichol( A, b, x0 )
     
     L_M = sparse(ichol(sparse(A), struct('type', 'ict','droptol',1e-3 ...
         ,'michol','off'))); 
-    %L_M = sparse(ichol(sparse(A))); 
     L_M_transp = transpose(L_M);  %transpose of L_M
-    r_i = b - A*x0; %initialize residual
+    r_i = b - A*x0; 
     niters=0;
     x = x0;
     
+    %Iter still converge
     while(norm(r_i) >= eps(1)*(norm(b)))
         z = L_M \ r_i;
         p_i = L_M_transp \ z;
