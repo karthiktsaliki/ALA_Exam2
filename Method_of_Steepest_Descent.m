@@ -1,9 +1,11 @@
 function [ soln, niters ] = Method_of_Steepest_Descent( A, b, x0 )
     
-    r_i = b - A*x0; %initialize residual
+    %initialize residual
+    r_i = b - A*x0; 
     niters=0;
     x = x0;
     
+    %Use loop to perform iterations still matured
     while(norm(r_i) >= eps(1)*(norm(b)))
         p_i = r_i;
         q_i = A*p_i;
