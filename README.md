@@ -1,2 +1,2 @@
-# ALA_Exam2
+# Exam2
 Mid Term 2
