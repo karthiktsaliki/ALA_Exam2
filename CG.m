@@ -5,6 +5,7 @@ function [ soln, niters ] = CG( A, b, x0 )
     niters=0;
     x = x0;
     
+    %Use loop to perform iterations still matured
     while(norm(curr_r) >= eps*(norm(b)))
         dot_curr_r = dot(curr_r, curr_r);
         if niters==0
